@@ -26,8 +26,20 @@ export default function App() {
             </>
           }
         />
+        <Route
+          exact
+          path="/product-list"
+          element={
+            <>
+              <AuthGuard>
+                <ProductList />{" "}
+              </AuthGuard>
+            </>
+          }
+        />
       </Routes>
     </>
   );
 }
 const Login = Loadable(lazy(() => import("./pages/login")));
+const ProductList = Loadable(lazy(() => import("./pages/product-list")));
