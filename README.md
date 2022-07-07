@@ -1,26 +1,26 @@
 # Getting Started
 
-##Clone repository
+## Clone repository
 
-###git clone https://github.com/cgtysnpr/product-project.git
+### `git clone https://github.com/cgtysnpr/product-project.git`
 
 Run this command on terminal for to clone repository.
 
-##Open File
+## Open File
 
-###cd product-project
+### `cd product-project`
 
 Run this command on terminal for to open cloned repository files.
 
-##Install packages
+## Install packages
 
-###cd product-project
+### `npm i`
 
 Run this command on terminal for to install packages
 
-#In the project directory, you can run:
+# In the project directory, you can run:
 
-###npm start
+### `npm start`
 
 Runs the app in the development mode.
 Open http://localhost:3000 to view it in your browser.
