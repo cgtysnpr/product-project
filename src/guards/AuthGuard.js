@@ -13,7 +13,7 @@ export default function AuthGuard({ children }) {
   const { pathname } = useLocation();
   const [requestedLocation, setRequestedLocation] = useState(null);
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (!isAuthenticated && isInitialized) {
       if (pathname !== requestedLocation) {
         setRequestedLocation(pathname);
       }
@@ -25,6 +25,7 @@ export default function AuthGuard({ children }) {
     requestedLocation,
     setRequestedLocation,
     navigate,
+    isInitialized,
   ]);
   if (!isInitialized) {
     return <LoadingScreen />;

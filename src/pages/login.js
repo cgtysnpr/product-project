@@ -68,6 +68,7 @@ export default function Login() {
                     type="password"
                     id="password"
                     label="Password"
+                    autoComplete="on"
                     variant="outlined"
                     name="password"
                     onChange={formik.handleChange}

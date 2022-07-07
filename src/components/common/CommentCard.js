@@ -12,7 +12,6 @@ const CommentCard = ({ data }) => {
         transition={{ duration: 0.5, ease: "linear" }}
         sx={{
           display: "flex",
-          width: "90%",
           p: 5,
           backgroundColor: "#dcdcdc",
           borderRadius: 6,
