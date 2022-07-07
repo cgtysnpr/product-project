@@ -3,16 +3,18 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
 import { motion } from "framer-motion";
-import StarIcon from "@mui/icons-material/Star";
-import StarBorderIcon from "@mui/icons-material/StarBorder";
+import { useNavigate } from "react-router-dom";
+import Stars from "./Stars";
 const ProductCard = ({ data }) => {
-  const stars = Array(5).fill(null);
+  let navigate = useNavigate();
   return (
     <>
       <motion.div whileHover={{ scale: 1.02 }}>
-        <Card sx={{ maxWidth: 345, cursor: "pointer" }}>
+        <Card
+          onClick={() => navigate(`/${data.slug}`)}
+          sx={{ maxWidth: 345, cursor: "pointer", boxShadow: 10 }}
+        >
           <CardMedia
             component="img"
             height="140"
@@ -20,20 +22,18 @@ const ProductCard = ({ data }) => {
             alt={data.name}
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography
+              className="text-two-clamp"
+              gutterBottom
+              variant="h6"
+              component="div"
+            >
               {data.name}
             </Typography>
-            <Stack direction="row" sx={{ flexWrap: "wrap" }}>
-              {stars.map((star, i) => (
-                <>
-                  {data.score >= i + 1 ? (
-                    <StarIcon sx={{ color: "yellow" }} />
-                  ) : (
-                    <StarBorderIcon />
-                  )}
-                </>
-              ))}
-            </Stack>
+            <Stars score={data.score} />
+            <Typography gutterBottom variant="h6" component="h6">
+              {`${data.price} ${data.currency}`}
+            </Typography>
           </CardContent>
         </Card>
       </motion.div>

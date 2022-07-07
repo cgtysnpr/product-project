@@ -44,7 +44,6 @@ const AuthContext = createContext({
   method: "jwt",
   login: () => Promise.resolve(),
   logout: () => Promise.resolve(),
-  register: () => Promise.resolve(),
 });
 
 // ----------------------------------------------------------------------
@@ -61,9 +60,8 @@ function AuthProvider({ children }) {
         const accessToken = window.localStorage.getItem("accessToken");
         if (accessToken && isValidToken(accessToken)) {
           setSession(accessToken);
-          const response = await userService.admin();
-          const { result } = response;
-          const user = result;
+          const response = await userService.user();
+          const user = response;
           dispatch({
             type: "INITIALIZE",
             payload: {
